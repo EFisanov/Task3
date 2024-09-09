@@ -8,11 +8,37 @@ import java.util.List;
 
 public class Main {
     private static final String SPECIFICATION_NAME = "C:\\Users\\efisanov\\IdeaProjects\\Task3\\src\\spec.txt";
+    private static final String DATA_SPECIFICATION_NAME = "C:\\Users\\efisanov\\IdeaProjects\\Task3\\src\\dataSpec.txt";
     private static final String FILE_NAME = "C:\\Users\\efisanov\\IdeaProjects\\Task3\\src\\firefighterCarTechCard.fctc";
 
     public static void main(String[] args) throws ValidateException {
-        checkFormat(FILE_NAME, SPECIFICATION_NAME);
-        checkDataFormat(FILE_NAME, SPECIFICATION_NAME);
+        checkFileFormat(FILE_NAME, SPECIFICATION_NAME);
+        checkDataFormat(FILE_NAME, DATA_SPECIFICATION_NAME);
+        System.out.println("Файл соответствует установленному формату");
+    }
+
+    public static void checkFileFormat(String fileName, String specificationName) throws ValidateException {
+        HashMap<Integer, String> specification = loadSpecification(specificationName);
+        List<Integer> keys = new ArrayList<>(specification.keySet());
+        List<String> fields = loadRecords(fileName);
+        for (Integer key : keys) {
+            if (!fields.get(key - 1).contains(specification.get(key)) && !specification.get(key).equals(" ")) {
+                throw new ValidateException("Файл не соответствует установленному формату");
+            }
+        }
+    }
+
+    public static void checkDataFormat(String fileName, String dataSpecificationName) throws ValidateException {
+        HashMap<Integer, String> dataSpecification = loadSpecification(dataSpecificationName);
+        List<Integer> keys = new ArrayList<>(dataSpecification.keySet());
+        List<String> fields = loadRecords(fileName);
+        HashMap<Integer, String> data = getDataMap(fields);
+
+        for (Integer key : keys) {
+            if (!data.get(key).matches(dataSpecification.get(key))) {
+                throw new ValidateException("Формат введённых значений не соответствует установленному");
+            }
+        }
     }
 
     public static HashMap<Integer, String> loadSpecification(String fileName) {
@@ -30,8 +56,8 @@ public class Main {
 
             }
 
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         return specification;
     }
@@ -41,43 +67,23 @@ public class Main {
         try {
             Path path = Paths.get(fileName);
             records = Files.readAllLines(path);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
         return records;
     }
 
-    public static void checkFormat(String fileName, String specificationName) throws ValidateException {
-        HashMap<Integer, String> specification = loadSpecification(specificationName);
-        List<Integer> keys = new ArrayList<>(specification.keySet());
-        List<String> fields = loadRecords(fileName);
-        for (Integer key : keys) {
-            if (!fields.get(key - 1).contains(specification.get(key)) && !specification.get(key).equals(" ")) {
-                throw new ValidateException("Файл не соответствует установленному формату");
-            }
-        }
-
-
-
-        System.out.println("Файл соответствует установленному формату");
-    }
-
-    public static void checkDataFormat(String fileName, String specificationName) {
-        HashMap<Integer, String> specification = loadSpecification(specificationName);
-        List<Integer> keys = new ArrayList<>(specification.keySet());
-        List<String> fields = loadRecords(fileName);
-
+    public static HashMap<Integer, String> getDataMap(List<String> fields) {
         HashMap<Integer, String> data = new HashMap<>();
-
         for (int i = 0; i < fields.size(); i++) {
             if (fields.get(i).contains(": ")) {
-                data.put(i, getValue(fields.get(i)));
+                data.put(i, getFieldValue(fields.get(i)));
             }
         }
-
+        return data;
     }
 
-    public static String getValue(String source) {
+    public static String getFieldValue(String source) {
         return source.substring(source.lastIndexOf(":")).substring(2);
     }
 
