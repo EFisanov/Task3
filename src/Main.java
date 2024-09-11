@@ -24,7 +24,7 @@ public class Main {
         for (Integer key : keys) {
             if (fields.get(key - 1).contains(specification.get(key))) {
                 continue;
-            } else if (specification.get(key).equals(" ")) {
+            } else if (fields.get(key - 1).isEmpty() && specification.get(key).equals(" ")) {
                 continue;
             } else {
                 throw new ValidateException("Файл не соответствует установленному формату");
