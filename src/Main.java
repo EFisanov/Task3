@@ -22,7 +22,11 @@ public class Main {
         List<Integer> keys = new ArrayList<>(specification.keySet());
         List<String> fields = loadRecords(fileName);
         for (Integer key : keys) {
-            if (!fields.get(key - 1).contains(specification.get(key)) && !specification.get(key).equals(" ")) {
+            if (fields.get(key - 1).contains(specification.get(key))) {
+                continue;
+            } else if (specification.get(key).equals(" ")) {
+                continue;
+            } else {
                 throw new ValidateException("Файл не соответствует установленному формату");
             }
         }
@@ -35,9 +39,10 @@ public class Main {
         HashMap<Integer, String> data = getDataMap(fields);
 
         for (Integer key : keys) {
-            if (!data.get(key).matches(dataSpecification.get(key))) {
-                throw new ValidateException("Формат введённых значений не соответствует установленному");
+            if (data.get(key).matches(dataSpecification.get(key))) {
+                continue;
             }
+            throw new ValidateException("Формат введённых значений не соответствует установленному");
         }
     }
 

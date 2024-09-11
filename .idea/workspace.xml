@@ -7,7 +7,7 @@
     <list default="true" id="fd178ab7-0dee-4ba4-9378-246a4138bb1a" name="Changes" comment="[.i] (TXPG-9535) добавлен функционал проверки значений введённых полей на соответствие паттерну регулярного выражения.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataSpec.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataSpec.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firefighterCarTechCard.fctc" beforeDir="false" afterPath="$PROJECT_DIR$/src/firefighterCarTechCard.fctc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,16 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "onboarding.tips.debug.path": "C:/Users/efisanov/IdeaProjects/Task3/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/efisanov/IdeaProjects/Task3/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -99,5 +99,16 @@
     <MESSAGE value="[.i] (TXPG-9535) реализован функционал чтения файла и проверки наличия и соответствия названий полей и элементов форматирования." />
     <MESSAGE value="[.i] (TXPG-9535) добавлен функционал проверки значений введённых полей на соответствие паттерну регулярного выражения." />
     <option name="LAST_COMMIT_MESSAGE" value="[.i] (TXPG-9535) добавлен функционал проверки значений введённых полей на соответствие паттерну регулярного выражения." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
