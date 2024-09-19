@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Main {
-    private static final String SPECIFICATION_NAME = "C:\\Users\\efisanov\\IdeaProjects\\Task3\\src\\spec.txt";
-    private static final String DATA_SPECIFICATION_NAME = "C:\\Users\\efisanov\\IdeaProjects\\Task3\\src\\dataSpec.txt";
-    private static final String FILE_NAME = "C:\\Users\\efisanov\\IdeaProjects\\Task3\\src\\firefighterCarTechCard.fctc";
+    private static final String SPECIFICATION_NAME = "src\\resources\\spec.txt";
+    private static final String DATA_SPECIFICATION_NAME = "src\\resources\\dataSpec.txt";
+    private static final String FILE_NAME = "src\\resources\\firefighterCarTechCard.fctc";
 
     public static void main(String[] args) throws ValidateException {
         checkFileFormat(FILE_NAME, SPECIFICATION_NAME);
