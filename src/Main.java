@@ -57,15 +57,9 @@ public class Main {
         return specification;
     }
 
-    public static List<String> loadRecords(String fileName) {
-        List<String> records = new ArrayList<>();
-        try {
-            Path path = Paths.get(fileName);
-            records = Files.readAllLines(path);
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-        return records;
+    public static List<String> loadRecords(String fileName) throws IOException {
+        Path path = Paths.get(fileName);
+        return Files.readAllLines(path);
     }
 
     public static HashMap<Integer, String> getDataMap(List<String> fields) {
